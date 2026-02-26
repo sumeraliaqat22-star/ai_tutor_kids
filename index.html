@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math & Code Quest | Learn & Grow!</title>
-    <meta name="description" content="A fun, gamified platform for kids to learn Math and Coding from basics to intermediate level!">
+    <meta name="description"
+        content="A fun, gamified platform for kids to learn Math and Coding from basics to intermediate level!">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -19,14 +24,14 @@
             <h1>QuestLearn</h1>
         </div>
         <div class="nav-links">
-            <a href="#math-path" class="nav-item">Math Path</a>
-            <a href="#code-path" class="nav-item">Code Canvas</a>
-            <a href="#leaderboard" class="nav-item">Leaderboard</a>
+            <a href="math.html" class="nav-item">Math Path</a>
+            <a href="code.html" class="nav-item">Code Canvas</a>
+            <a href="hub.html" class="nav-item">Leaderboard</a>
         </div>
         <div class="user-stats">
             <div class="streak" title="Daily Streak">🔥 <span>3</span></div>
             <div class="xp" id="xp-counter">⭐ <span>450</span> XP</div>
-            <button class="btn btn-primary" id="login-btn">Log In</button>
+            <button class="btn btn-primary" id="login-btn" onclick="window.location.href='hub.html'">Log In</button>
         </div>
     </nav>
 
@@ -36,8 +41,10 @@
             <h1 class="hero-title">Level Up Your Brain! 🚀</h1>
             <p class="hero-subtitle">Master Math and Coding through fun challenges, daily streaks, and epic rewards.</p>
             <div class="hero-buttons">
-                <button class="btn btn-large btn-accent">Start Playing Now!</button>
-                <button class="btn btn-large btn-secondary">Explore Paths</button>
+                <button class="btn btn-large btn-accent" onclick="window.location.href='hub.html'">Start Playing
+                    Now!</button>
+                <button class="btn btn-large btn-secondary" onclick="window.location.href='hub.html'">Explore
+                    Paths</button>
             </div>
         </div>
         <div class="hero-image">
@@ -60,7 +67,7 @@
                     <div class="progress" style="width: 40%"></div>
                 </div>
                 <p class="level-text">Level 4: Fraction Ninja</p>
-                <button class="btn btn-primary">Continue Path</button>
+                <button class="btn btn-primary" onclick="window.location.href='math.html'">Continue Path</button>
             </div>
 
             <!-- Coding Card -->
@@ -72,7 +79,7 @@
                     <div class="progress" style="width: 15%"></div>
                 </div>
                 <p class="level-text">Level 2: Logic Builder</p>
-                <button class="btn btn-primary">Continue Path</button>
+                <button class="btn btn-primary" onclick="window.location.href='code.html'">Continue Path</button>
             </div>
         </div>
     </section>
@@ -113,4 +120,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
