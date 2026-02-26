@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Canvas | QuestLearn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="code-page">
+    <!-- Navbar -->
+    <nav class="navbar code-nav">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <span class="mascot-icon">🤖</span>
+            <span>Back to Hub</span>
+        </div>
+        <div class="lesson-title">Code Canvas 🎨</div>
+        <div class="user-stats">
+            <div class="xp" id="xp-counter">⭐ <span id="xp-val">500</span> XP</div>
+        </div>
+    </nav>
+
+    <div class="code-workspace">
+        <!-- Sidebar: Blocks ToolBox & Text Toggle -->
+        <aside class="toolbox-panel">
+            <div class="toggle-container">
+                <span class="toggle-label">Blocks</span>
+                <label class="switch">
+                    <input type="checkbox" id="mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label text-label">Text (JS)</span>
+            </div>
+
+            <div id="blocks-toolbox" class="toolbox-section active">
+                <h3>Code Blocks</h3>
+                <p class="toolbox-hint">Drag these onto the canvas!</p>
+
+                <div class="draggable-block bg-action" draggable="true" data-action="move-right">
+                    <span>Move Right ➔</span>
+                </div>
+                <div class="draggable-block bg-action" draggable="true" data-action="move-left">
+                    <span>Move Left ⬅</span>
+                </div>
+                <div class="draggable-block bg-style" draggable="true" data-action="color-blue">
+                    <span class="color-dot" style="background: #3b82f6;"></span> Make Blue
+                </div>
+                <div class="draggable-block bg-style" draggable="true" data-action="color-yellow">
+                    <span class="color-dot" style="background: #facc15;"></span> Make Yellow
+                </div>
+                <div class="draggable-block bg-style" draggable="true" data-action="color-green">
+                    <span class="color-dot" style="background: #10b981;"></span> Make Green
+                </div>
+                <div class="draggable-block bg-anim" draggable="true" data-action="spin">
+                    <span>Spin! 🌀</span>
+                </div>
+                <div class="draggable-block bg-anim" draggable="true" data-action="jump">
+                    <span>Jump! ⬆️</span>
+                </div>
+            </div>
+
+            <!-- Mascot integration -->
+            <div class="mascot-cheer-area">
+                <div class="mascot-avatar" id="mascot-feedback">🦊</div>
+                <div class="speech-bubble small-bubble" id="mascot-speech">I'm watching your code!</div>
+            </div>
+        </aside>
+
+        <!-- Main Middle: Editor Area (Blocks Dropzone OR Text Editor) -->
+        <main class="editor-panel">
+            <!-- Block Mode Dropzone -->
+            <div id="block-dropzone" class="dropzone-area active">
+                <div class="dropzone-placeholder" id="drop-placeholder">
+                    <span>Drop blocks here to build your logic!</span>
+                </div>
+                <!-- Dropped blocks go here -->
+            </div>
+
+            <!-- Text Mode Editor -->
+            <div id="text-editor-container" class="text-editor-area">
+                <div class="editor-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="filename">script.js</span>
+                </div>
+                <textarea id="code-textarea" class="code-textarea" spellcheck="false">// Write JavaScript here.
+// Available commands: 
+// moveRight(), moveLeft()
+// makeBlue(), makeYellow(), makeGreen()
+// spin(), jump()
+
+</textarea>
+            </div>
+
+            <div class="floating-run">
+                <button class="btn btn-large btn-accent" id="run-btn">▶ Run Code</button>
+                <button class="btn btn-secondary btn-icon" id="clear-btn" title="Clear Canvas">🗑️</button>
+            </div>
+        </main>
+
+        <!-- Right: Animated Visual Preview -->
+        <aside class="preview-panel">
+            <div class="preview-header">
+                <h3>Live Preview</h3>
+            </div>
+            <div class="preview-stage" id="preview-stage">
+                <!-- User's Actor -->
+                <div class="actor" id="the-actor">🚀</div>
+            </div>
+            <div class="console-output" id="console-output">
+                System Ready...
+            </div>
+        </aside>
+    </div>
+
+    <!-- Celebration Canvas overlay -->
+    <canvas id="confetti"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:999; display:none;"></canvas>
+
+    <script src="code.js"></script>
+</body>
+
+</html>

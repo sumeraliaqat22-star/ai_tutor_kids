@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Mastery | QuestLearn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="lesson-page">
+    <!-- Navbar -->
+    <nav class="navbar lesson-nav">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <span class="mascot-icon">🤖</span>
+            <span>Back to Hub</span>
+        </div>
+        <div class="lesson-title" id="lesson-title">Loading Level...</div>
+        <div class="user-stats">
+            <div class="xp" id="xp-counter">⭐ <span id="xp-val">450</span> XP</div>
+        </div>
+    </nav>
+
+    <div class="lesson-container">
+        <!-- Left Panel: Instruction -->
+        <aside class="instruction-panel">
+            <div class="mascot-guide">
+                <span class="mascot-avatar" id="mascot-avatar">🦊</span>
+                <div class="speech-bubble">
+                    <h2 id="question-title">Hello!</h2>
+                    <p id="question-text">Let's learn some math!</p>
+                </div>
+            </div>
+
+            <div class="input-area" id="input-container">
+                <!-- Dynamically injected inputs based on level type -->
+            </div>
+
+            <div class="feedback-area" id="feedback">
+                <!-- Feedback will appear here -->
+            </div>
+
+            <button class="btn btn-large btn-primary" id="check-btn">Check Answer</button>
+        </aside>
+
+        <!-- Right Panel: Interactive Area -->
+        <main class="interactive-panel">
+            <div id="game-board-container" class="game-board-layer">
+                <!-- Javascript will inject the level game board here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content text-center">
+            <div class="badge-icon" id="badge-icon">🏆</div>
+            <h2 id="modal-title">Awesome Job!</h2>
+            <p id="modal-text">You earned +50 XP and leveled up!</p>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" onclick="window.location.href='index.html'">Go to Hub</button>
+                <button class="btn btn-primary" id="next-level-btn">Next Level ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Canvas overlay -->
+    <canvas id="confetti"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:999; display:none;"></canvas>
+
+    <script src="math.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math & Code Quest | Learn & Grow!</title>
+    <meta name="description" content="A fun, gamified platform for kids to learn Math and Coding from basics to intermediate level!">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="mascot-icon">🤖</span>
+            <h1>QuestLearn</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#math-path" class="nav-item">Math Path</a>
+            <a href="#code-path" class="nav-item">Code Canvas</a>
+            <a href="#leaderboard" class="nav-item">Leaderboard</a>
+        </div>
+        <div class="user-stats">
+            <div class="streak" title="Daily Streak">🔥 <span>3</span></div>
+            <div class="xp" id="xp-counter">⭐ <span>450</span> XP</div>
+            <button class="btn btn-primary" id="login-btn">Log In</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Level Up Your Brain! 🚀</h1>
+            <p class="hero-subtitle">Master Math and Coding through fun challenges, daily streaks, and epic rewards.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-large btn-accent">Start Playing Now!</button>
+                <button class="btn btn-large btn-secondary">Explore Paths</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-element mascot-hero">🦊</div>
+            <div class="floating-element math-symbol">+</div>
+            <div class="floating-element code-symbol">&lt;/&gt;</div>
+        </div>
+    </header>
+
+    <!-- Learning Paths Section -->
+    <section class="learning-paths">
+        <h2 class="section-title">Choose Your Adventure</h2>
+        <div class="path-cards">
+            <!-- Math Card -->
+            <div class="card math-card">
+                <div class="card-icon">🍕</div>
+                <h3>Math Mastery</h3>
+                <p>From slicing pizza fractions to solving algebra puzzles. Math is fun!</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 40%"></div>
+                </div>
+                <p class="level-text">Level 4: Fraction Ninja</p>
+                <button class="btn btn-primary">Continue Path</button>
+            </div>
+
+            <!-- Coding Card -->
+            <div class="card code-card">
+                <div class="card-icon">💻</div>
+                <h3>Code Canvas</h3>
+                <p>Build your own games and animations using visual blocks and Python.</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 15%"></div>
+                </div>
+                <p class="level-text">Level 2: Logic Builder</p>
+                <button class="btn btn-primary">Continue Path</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Code Sandbox Preview -->
+    <section class="sandbox-preview">
+        <div class="sandbox-container">
+            <div class="sandbox-header">
+                <h3>Try the Code Sandbox!</h3>
+                <p>Edit the color below and click Run to see the magic.</p>
+            </div>
+            <div class="sandbox-body">
+                <div class="editor">
+                    <div class="editor-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="filename">magic.css</span>
+                    </div>
+                    <textarea id="code-editor" class="code-textarea">.magic-box {
+  background-color: blue;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}</textarea>
+                    <button class="btn btn-accent run-btn" onclick="runCode()">▶ Run Magic!</button>
+                </div>
+                <div class="preview-pane">
+                    <div id="magic-box" class="magic-box">🦊</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 QuestLearn Platform. Built with ❤️ for kids.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
