@@ -1,212 +1,39 @@
-:root {
-    /* Vibrant, Kid-Friendly Color Palette */
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --secondary: #a855f7;
-    --secondary-hover: #9333ea;
-    --accent: #facc15;
-    --accent-hover: #eab308;
-    --background: #f8fafc;
-    --surface: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --success: #22c55e;
-    --streak: #ef4444;
-
-    /* Typography */
-    --font-heading: 'Fredoka', sans-serif;
-    --font-body: 'Nunito', sans-serif;
-
-    /* Shadows & Radii */
-    --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.4);
-    --radius-full: 9999px;
-    --radius-lg: 1.5rem;
-    --radius-md: 1rem;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-body);
-    background-color: var(--background);
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* ========================================= */
-/* 1. TOP NAVIGATION BAR                     */
-/* ========================================= */
-.main-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--surface);
-    padding: 1rem 5%;
-    box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Sabse upar rahega */
-}
-
-.nav-logo {
-    font-size: 24px;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: 0.3s;
-    padding-bottom: 5px;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    color: var(--primary);
-    border-bottom: 3px solid var(--primary);
-}
-
-/* ========================================= */
-/* 2. HUB PAGE LAYOUT                        */
-/* ========================================= */
-body.hub-page {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.hub-header {
-    background: var(--surface);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #e2e8f0;
-    flex-shrink: 0;
-}
-
-.hub-main {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-}
-
-/* Sidebar */
-.hub-sidebar {
-    width: 320px;
-    background: var(--surface);
-    border-right: 1px solid #e2e8f0;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    overflow-y: auto;
-}
-
-/* Map Area */
-.hub-map-area {
-    flex: 1;
-    position: relative;
-    background: #bae6fd; /* Sea color */
-    overflow: hidden;
-}
-
-.world-map {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-/* Island Styles */
-.island {
-    position: absolute;
-    padding: 1.5rem;
-    width: 260px;
-    text-align: center;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    transition: 0.3s;
-}
-
-.island:hover {
-    transform: translateY(-10px) scale(1.05);
-}
-
-.math-island { background: #f3e8ff; border: 4px solid var(--secondary); }
-.code-island { background: #e0e7ff; border: 4px solid var(--primary); }
-
-.island-icon { font-size: 4rem; margin-top: -3.5rem; }
-
-/* XP Bar & Stats */
-.avatar-circle {
-    width: 60px; height: 60px;
-    background: #e0e7ff;
-    border: 3px solid var(--primary);
+.pizza {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
-    display: flex; justify-content: center; align-items: center; font-size: 2.5rem;
+    background: #f7e6ca;
+    border: 10px solid #d99a4e;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-.xp-bar-container {
-    height: 15px; background: #e2e8f0; border-radius: 10px; overflow: hidden;
-}
-
-.xp-bar-fill.glowing {
-    height: 100%; background: var(--accent);
-    animation: glowPulse 2s ease-in-out infinite;
-}
-
-/* Animations */
-@keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 8px rgba(250, 204, 21, 0.5); }
-    50% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.9); }
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-.bounce-slow { animation: bounce 3s ease-in-out infinite; }
-
-/* Button Styles */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: var(--radius-full);
-    text-decoration: none;
-    font-weight: 700;
-    text-align: center;
+.pizza-slice {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: #ffd269;
+    transform-origin: 100% 100%;
+    border: 1px solid #d99a4e;
     cursor: pointer;
-    border: none;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
-.btn-primary { background: var(--primary); color: white; }
-.btn-accent { background: var(--accent); color: var(--text-main); }
-
-/* SVG Map Path */
-.map-connections {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 1; pointer-events: none;
+.pizza-slice.selected {
+    background: #ef4444; /* Tomato sauce color when selected */
 }
-.dashed-path {
-    stroke: #0ea5e9; stroke-width: 4; stroke-dasharray: 10 10;
+
+/* Slices position for 4 parts */
+.slice-1 { top: 0; left: 0; transform: rotate(0deg); }
+.slice-2 { top: 0; left: 0; transform: rotate(90deg); }
+.slice-3 { top: 0; left: 0; transform: rotate(180deg); }
+.slice-4 { top: 0; left: 0; transform: rotate(270deg); }
+
+.fraction-display {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
 }
