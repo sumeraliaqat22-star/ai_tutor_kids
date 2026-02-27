@@ -8,15 +8,22 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="hub-page">
 
-    <!-- Top XP & Level Header -->
+    <nav class="main-nav">
+        <div class="nav-logo">🚀 QuestLearn</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hub.html" class="active">Dashboard</a></li>
+            <li><a href="math.html">Math Island</a></li>
+            <li><a href="code.html">Code Cove</a></li>
+        </ul>
+    </nav>
+
     <header class="hub-header">
         <div class="student-profile">
             <div class="avatar-circle">👦</div>
@@ -46,10 +53,7 @@
     </header>
 
     <div class="hub-main">
-
-        <!-- Left Sidebar: Mascot & Goals -->
         <aside class="hub-sidebar">
-
             <div class="mascot-welcome">
                 <div class="speech-bubble">
                     <h3>Welcome back!</h3>
@@ -79,66 +83,53 @@
                     <span>Reward: </span><strong>+100 XP</strong>
                 </div>
             </div>
-
         </aside>
 
-        <!-- Center: The Progress Map -->
         <main class="hub-map-area">
             <h2 class="map-title">World Map</h2>
-
             <div class="world-map">
-                <!-- SVG Path connections between islands -->
                 <svg class="map-connections" preserveAspectRatio="none">
                     <path class="dashed-path" d="M 150 150 Q 400 300 650 150" fill="transparent" />
                 </svg>
 
-                <!-- Math Island -->
                 <div class="island math-island" style="top: 15%; left: 10%; z-index: 50;">
                     <div class="island-icon bounce-slow">🌋</div>
                     <h3>Math Island</h3>
                     <p>Current: Level 2 Geometry</p>
-                    <a href="math.html" class="btn btn-primary island-btn"
-                        style="display: block; text-decoration: none;">Play Math ➔</a>
+                    <a href="math.html" class="btn btn-primary island-btn">Play Math ➔</a>
                 </div>
 
-                <!-- Coding Island -->
                 <div class="island code-island" style="top: 15%; right: 10%; z-index: 50;">
                     <div class="island-icon float-slow">🏝️</div>
                     <h3>Code Cove</h3>
                     <p>Current: Block Sandbox</p>
-                    <a href="code.html" class="btn btn-accent island-btn"
-                        style="display: block; text-decoration: none;">Code Canvas ➔</a>
+                    <a href="code.html" class="btn btn-accent island-btn">Code Canvas ➔</a>
                 </div>
-
-                <!-- The locked Future Island has been removed to prevent overlaps -->
-
             </div>
         </main>
     </div>
 
-    <!-- Bottom: Trophy Case -->
     <section class="trophy-case">
         <h3 class="trophy-title">The Trophy Room 🏆</h3>
         <div class="badges-container">
             <div class="badge-card badge-gold">
                 <div class="badge-icon-lg">🧙‍♂️</div>
                 <h4>Math Wizard</h4>
-                <p>Mastered geometry, math, and fractions.</p>
+                <p>Mastered geometry and fractions.</p>
             </div>
             <div class="badge-card badge-silver">
                 <div class="badge-icon-lg">🥷</div>
                 <h4>Code Ninja</h4>
-                <p>Wrote flawless functional logic blocks.</p>
+                <p>Wrote flawless logic blocks.</p>
             </div>
             <div class="badge-card badge-bronze">
                 <div class="badge-icon-lg">🔥</div>
                 <h4>7-Day Streak</h4>
-                <p>Logged in exactly 7 days in a row.</p>
+                <p>Logged in 7 days in a row.</p>
             </div>
         </div>
     </section>
 
     <script src="script.js"></script>
 </body>
-
 </html>
