@@ -1,3 +1,64 @@
+:root {
+    --primary: #6366f1;
+    --secondary: #a855f7;
+    --accent: #facc15;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text-main: #1e293b;
+    --radius-lg: 1.5rem;
+    --radius-full: 9999px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--background);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Navbar Fix */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1rem 5%;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.nav-logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); cursor: pointer; }
+
+.nav-links { list-style: none; display: flex; gap: 20px; }
+
+.nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; }
+
+/* Lesson Page Layout */
+.lesson-container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+.instruction-panel {
+    width: 350px;
+    background: white;
+    padding: 2rem;
+    border-right: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.interactive-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #ffffff 0%, #e0f2fe 100%);
+}
+
+/* Pizza Game CSS */
 .pizza {
     width: 300px;
     height: 300px;
@@ -6,7 +67,6 @@
     border: 10px solid #d99a4e;
     position: relative;
     overflow: hidden;
-    margin: 0 auto;
 }
 
 .pizza-slice {
@@ -20,20 +80,20 @@
     transition: 0.3s;
 }
 
-.pizza-slice.selected {
-    background: #ef4444; /* Tomato sauce color when selected */
-}
+.pizza-slice.selected { background: #ef4444; }
 
-/* Slices position for 4 parts */
 .slice-1 { top: 0; left: 0; transform: rotate(0deg); }
 .slice-2 { top: 0; left: 0; transform: rotate(90deg); }
 .slice-3 { top: 0; left: 0; transform: rotate(180deg); }
 .slice-4 { top: 0; left: 0; transform: rotate(270deg); }
 
-.fraction-display {
-    margin-top: 20px;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    text-align: center;
+/* Buttons */
+.btn {
+    padding: 1rem;
+    border-radius: var(--radius-full);
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
 }

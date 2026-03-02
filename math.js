@@ -18,12 +18,15 @@ const checkBtn = document.getElementById('check-btn');
 
 function loadLevel() {
     const level = levels[currentLevel];
-    document.getElementById('lesson-title').innerText = level.title;
-    questionText.innerText = level.instruction;
-    if(level.type === "pizza") { createPizza(level.total); }
+    if (document.getElementById('lesson-title')) {
+        document.getElementById('lesson-title').innerText = level.title;
+    }
+    if (questionText) questionText.innerText = level.instruction;
+    if (level.type === "pizza") { createPizza(level.total); }
 }
 
 function createPizza(totalSlices) {
+    if (!pizzaBase) return;
     pizzaBase.innerHTML = '';
     selectedSlices = 0;
     for (let i = 1; i <= totalSlices; i++) {
@@ -32,21 +35,21 @@ function createPizza(totalSlices) {
         slice.onclick = () => {
             slice.classList.toggle('selected');
             selectedSlices = document.querySelectorAll('.pizza-slice.selected').length;
-            feedback.innerText = `Selected: ${selectedSlices}`;
-            feedback.classList.add('show');
+            if (feedback) feedback.innerText = `Selected: ${selectedSlices}`;
         };
         pizzaBase.appendChild(slice);
     }
 }
 
-checkBtn.onclick = () => {
-    if (selectedSlices === levels[currentLevel].target) {
-        document.getElementById('success-modal').classList.add('active');
-        document.getElementById('confetti').style.display = 'block';
-    } else {
-        feedback.innerText = "Ghalat jawab! Dobara koshish karein. 🍕";
-        feedback.className = "feedback-area show feedback-error";
-    }
-};
+if (checkBtn) {
+    checkBtn.onclick = () => {
+        if (selectedSlices === levels[currentLevel].target) {
+            alert("Bohat achay! Sahi jawab. 🎉");
+            document.getElementById('success-modal').classList.add('active');
+        } else {
+            alert("Dobara koshish karein! 🍕");
+        }
+    };
+}
 
 loadLevel();
