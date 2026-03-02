@@ -68,3 +68,23 @@ body {
 }
 
 .play-button:active { transform: translateY(3px); box-shadow: none; }
+.game-body { background: #0f172a; display: flex; flex-direction: column; height: 100vh; }
+.quest-box { background: #1e293b; border: 4px solid #22c55e; border-radius: 30px; padding: 30px; width: 90%; max-width: 500px; margin: auto; }
+.fox-emoji { font-size: 4rem; display: block; margin-bottom: 10px; }
+.bubble { background: white; color: black; padding: 15px; border-radius: 15px; font-weight: bold; margin-bottom: 20px; }
+
+/* Pizza UI */
+.pizza-circle { width: 200px; height: 200px; border: 5px solid #d97706; border-radius: 50%; position: relative; margin: auto; overflow: hidden; background: #fde68a; }
+.slice { position: absolute; width: 50%; height: 50%; border: 1px solid #d97706; transform-origin: 100% 100%; cursor: pointer; }
+.slice:nth-child(2) { transform: rotate(90deg); }
+.slice:nth-child(3) { transform: rotate(180deg); }
+.slice:nth-child(4) { transform: rotate(270deg); }
+.slice.selected { background: #ef4444; }
+
+/* Shapes UI */
+.interactive-area { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.shape { width: 60px; height: 60px; cursor: pointer; background: #3b82f6; }
+.circle { border-radius: 50%; }
+.triangle { width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-bottom: 60px solid #3b82f6; background: none; }
+
+.math-input { font-size: 2rem; width: 80px; text-align: center; border-radius: 10px; border: none; }

@@ -3,44 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Mastery | QuestLearn</title>
+    <title>Math Adventure | QuestLearn</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="lesson-page">
-    <nav class="main-nav">
-        <div class="nav-logo" onclick="window.location.href='hub.html'">🚀 QuestLearn</div>
-        <div class="lesson-title" id="lesson-title">Math Quest</div>
-        <div class="xp">⭐ <span id="xp-val">450</span> XP</div>
+<body class="game-body">
+    <nav class="game-nav">
+        <button class="back-btn" onclick="window.location.href='index.html'">⬅ Back</button>
+        <div class="level-info">Level: <span id="level-num">1</span></div>
+        <div class="xp-display">⭐ <span id="xp-count">450</span></div>
     </nav>
 
-    <div class="lesson-container">
-        <aside class="instruction-panel">
-            <div class="mascot-guide">
-                <span class="mascot-avatar">🦊</span>
-                <div class="speech-bubble">
-                    <p id="question-text">Loading...</p>
+    <div class="game-container">
+        <div class="quest-box">
+            <div class="mascot-section">
+                <span class="fox-emoji">🦊</span>
+                <div class="bubble" id="instruction-text">Loading quest...</div>
+            </div>
+
+            <div id="interactive-area" class="interactive-area">
                 </div>
-            </div>
-            <div class="feedback-area" id="feedback"></div>
-            <button class="btn btn-primary" id="check-btn">Check Answer</button>
-        </aside>
 
-        <main class="interactive-panel">
-            <div class="pizza-container">
-                <div class="pizza" id="pizza-base"></div>
+            <div class="action-section">
+                <div id="feedback-text" class="feedback"></div>
+                <button class="check-button" id="main-action-btn">Check Answer!</button>
             </div>
-        </main>
-    </div>
-
-    <div class="modal" id="success-modal">
-        <div class="modal-content">
-            <h2>Shabash! 🏆</h2>
-            <p>Aap ne sahi jawab diya!</p>
-            <button class="btn btn-primary" onclick="window.location.href='hub.html'">Wapas Hub Par Jayein</button>
         </div>
     </div>
 
-    <canvas id="confetti" style="display:none; position:fixed; top:0; left:0; pointer-events:none;"></canvas>
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <h2>AWESOME! 🎉</h2>
+            <p id="win-msg">+50 XP Earned!</p>
+            <button id="next-btn" class="next-level-btn">Next Adventure ➔</button>
+        </div>
+    </div>
 
     <script src="math.js"></script>
 </body>
