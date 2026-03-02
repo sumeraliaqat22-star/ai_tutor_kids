@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Quest | Fun Learning</title>
+    <title>Math Quest | Adventure Awaits!</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="home-page">
     <nav class="navbar">
         <div class="logo">🦊 MathQuest</div>
-        <div class="user-stats">
-            <div class="xp-badge">⭐ <span id="xp-val">0</span> XP</div>
-        </div>
+        <div class="xp-badge">⭐ <span id="xp-display">450</span> XP</div>
     </nav>
 
-    <header class="hero">
-        <h1 class="glow-text">Ready for a Math Adventure? 🚀</h1>
-        <p>Solve puzzles, eat pizza, and become a Math Hero!</p>
+    <main class="hero-section">
+        <h1 class="main-title">Ready for a Math Adventure? 🚀</h1>
+        <p class="subtitle">Eat Pizza 🍕, Solve Puzzles 📐, and Level Up!</p>
         
-        <div class="main-card" onclick="window.location.href='math.html'">
-            <div class="card-icon">🍕</div>
-            <h2>Start Math Quest</h2>
-            <p>Level 1: Pizza Fractions</p>
-            <button class="play-btn">PLAY NOW</button>
+        <div class="game-card" onclick="window.location.href='math.html'">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <span class="icon">🍕</span>
+                <h2>Start Math Quest</h2>
+                <div class="level-indicator">Level 1: Pizza Fun</div>
+                <button class="play-button">PLAY NOW</button>
+            </div>
         </div>
-    </header>
+    </main>
 
-    <footer class="footer">Made with ❤️ for my Students</footer>
+    <footer class="game-footer">
+        <p>Built with ❤️ for my Students</p>
+    </footer>
 </body>
 </html>
