@@ -1,235 +1,67 @@
-/* ========================================= */
-/* 1. VARIABLES & RESET                      */
-/* ========================================= */
 :root {
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --secondary: #a855f7;
+    --bg: #0f172a;
+    --card: #1e293b;
+    --primary: #22c55e;
     --accent: #facc15;
-    --background: #f8fafc;
-    --surface: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --radius-lg: 1.5rem;
-    --radius-md: 1rem;
-    --radius-full: 9999px;
-    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
+    --text: #f8fafc;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background-color: var(--background);
-    color: var(--text-main);
-    line-height: 1.6;
+    font-family: 'Fredoka', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    text-align: center;
+    margin: 0;
 }
 
-h1, h2, h3 { font-family: 'Fredoka', sans-serif; }
-
-/* ========================================= */
-/* 2. NAVIGATION BAR                         */
-/* ========================================= */
-.navbar, .main-nav {
+.navbar {
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: var(--surface);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background: #1e293b;
+    border-bottom: 3px solid var(--primary);
 }
 
-.logo { display: flex; align-items: center; gap: 10px; color: var(--primary); }
-.nav-links { display: flex; gap: 20px; list-style: none; }
-.nav-links a { text-decoration: none; color: var(--text-main); font-weight: 700; transition: 0.3s; }
-.nav-links a:hover { color: var(--primary); }
-
-.user-stats { display: flex; align-items: center; gap: 15px; }
-.streak, .xp { font-weight: 800; padding: 5px 15px; border-radius: var(--radius-full); }
-.streak { background: #fee2e2; color: #ef4444; }
-.xp { background: #e0e7ff; color: var(--primary); }
-
-/* ========================================= */
-/* 3. HERO SECTION (LANDING PAGE)            */
-/* ========================================= */
-.hero {
-    display: flex;
-    align-items: center;
-    padding: 5rem 5%;
-    gap: 2rem;
-    min-height: 80vh;
-}
-
-.hero-content { flex: 1; }
-.hero-title { font-size: 3.5rem; margin-bottom: 1rem; color: var(--primary); }
-.hero-subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; }
-
-.hero-image { flex: 1; position: relative; height: 300px; display: flex; justify-content: center; align-items: center; }
-.floating-element {
-    position: absolute;
+.glow-text {
     font-size: 3rem;
-    background: white;
-    width: 80px; height: 80px;
-    display: flex; justify-content: center; align-items: center;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    animation: float 3s ease-in-out infinite;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+    margin-top: 50px;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+.main-card {
+    background: var(--card);
+    width: 300px;
+    margin: 50px auto;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 4px solid var(--primary);
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* ========================================= */
-/* 4. CARDS & BUTTONS                        */
-/* ========================================= */
-.path-cards { display: flex; justify-content: center; gap: 2rem; padding: 4rem 5%; flex-wrap: wrap; }
-.card {
-    background: white; padding: 2rem; border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md); width: 320px; text-align: center;
-    transition: 0.3s; border: 3px solid transparent;
-}
-.card:hover { transform: translateY(-10px); border-color: var(--primary); }
-
-.btn {
-    padding: 0.8rem 1.5rem; border-radius: var(--radius-full);
-    border: none; font-weight: 700; cursor: pointer; transition: 0.2s;
-    text-decoration: none; display: inline-block;
-}
-.btn-primary { background: var(--primary); color: white; }
-.btn-accent { background: var(--accent); color: var(--text-main); }
-.btn-secondary { background: var(--secondary); color: white; }
-
-/* ========================================= */
-/* 5. MATH PAGE (LESSON AREA)                */
-/* ========================================= */
-.lesson-container { display: flex; height: calc(100vh - 70px); }
-.instruction-panel { width: 350px; background: white; padding: 2rem; border-right: 2px solid #e2e8f0; }
-.interactive-panel { flex: 1; background: radial-gradient(circle, #fff 0%, #e0f2fe 100%); display: flex; justify-content: center; align-items: center; }
-
-/* Pizza styling */
-.pizza { width: 300px; height: 300px; border-radius: 50%; background: #f7e6ca; border: 10px solid #d99a4e; position: relative; overflow: hidden; }
-.pizza-slice { position: absolute; width: 50%; height: 50%; background: #ffd269; transform-origin: 100% 100%; border: 1px solid #d99a4e; cursor: pointer; }
-.pizza-slice.selected { background: #ef4444; }
-.slice-1 { top: 0; left: 0; transform: rotate(0deg); }
-.slice-2 { top: 0; left: 0; transform: rotate(90deg); }
-.slice-3 { top: 0; left: 0; transform: rotate(180deg); }
-.slice-4 { top: 0; left: 0; transform: rotate(270deg); }
-/* --- Code Canvas Specific Styles --- */
-
-#actor {
-    position: absolute;
-    font-size: 3rem;
-    transition: all 0.5s ease;
-    left: 50%; /* Character ko beech mein rakhne ke liye */
-    top: 50%;
+.main-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--primary);
 }
 
-.jump-anim {
-    animation: jump 0.5s ease;
-}
+.card-icon { font-size: 5rem; margin-bottom: 10px; }
 
-@keyframes jump {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-50px); }
-}
-
-#dropzone {
-    min-height: 250px;
-    border: 3px dashed var(--primary); /* Blue dashed border */
-    background: #f1f5f9;
-    padding: 15px;
-    border-radius: var(--radius-lg);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-/* Draggable Blocks Styling */
-.draggable-block {
-    background: white;
-    padding: 10px 15px;
-    border-radius: var(--radius-md);
-    cursor: grab;
-    border: 2px solid var(--primary);
-    font-weight: 700;
-    display: inline-block;
-    user-select: none;
-}
-.actor {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3.5rem;
-    transition: all 0.5s ease;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dropped-block {
-    margin-bottom: 5px;
-    width: 100%;
+.play-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 15px;
     cursor: pointer;
 }
 
-.console-output div {
-    margin-bottom: 4px;
-    border-bottom: 1px solid #1e293b;
-}
-/* Rocket Animations */
-.jump-anim {
-    animation: rocketJump 0.5s ease;
-}
-
-@keyframes rocketJump {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-100px); }
-}
-
-.spin-anim {
-    animation: rocketSpin 1s linear;
-}
-
-@keyframes rocketSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.dropped-block {
-    margin: 5px 0;
-    width: 100%;
-    cursor: default;
-}
-/* Rocket Movement Animations */
-.jump-anim {
-    animation: rocketJump 0.5s ease-in-out;
-}
-
-@keyframes rocketJump {
-    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-    50% { transform: translate(-50%, -50%) translateY(-100px); }
-}
-
-.spin-anim {
-    animation: rocketSpin 0.8s linear;
-}
-
-@keyframes rocketSpin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.dropped-block {
-    margin: 5px 0 !important;
-    width: 90% !important;
-    background-color: #f0fdf4 !important;
-    border: 2px solid #22c55e !important;
+.xp-badge {
+    background: #334155;
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: 2px solid var(--accent);
 }
