@@ -1,37 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // DOM Elements
     const actor = document.getElementById('the-actor');
     const dropzone = document.getElementById('block-dropzone');
     const placeholder = document.getElementById('drop-placeholder');
-    const runBtn = document.getElementById('run-btn');
+    const runBtn = document.getElementById('run-btn'); // Aapki HTML mein yehi ID hai
     const clearBtn = document.getElementById('clear-btn');
-    const modeToggle = document.getElementById('mode-toggle');
-    const blocksToolbox = document.getElementById('blocks-toolbox');
-    const textEditor = document.getElementById('text-editor-container');
     const consoleOutput = document.getElementById('console-output');
 
-    // --- Mode Switching (Blocks vs Text) ---
-    modeToggle.addEventListener('change', () => {
-        if (modeToggle.checked) {
-            blocksToolbox.classList.remove('active');
-            dropzone.classList.remove('active');
-            textEditor.classList.add('active');
-            logConsole("Switched to Text Mode (JavaScript)");
-        } else {
-            blocksToolbox.classList.add('active');
-            dropzone.classList.add('active');
-            textEditor.classList.remove('active');
-            logConsole("Switched to Block Mode");
-        }
-    });
-
-    // --- Drag and Drop Logic ---
+    // Drag and Drop Logic
     const blocks = document.querySelectorAll('.draggable-block');
     blocks.forEach(block => {
         block.addEventListener('dragstart', (e) => {
             e.dataTransfer.setData('action', block.dataset.action);
-            e.dataTransfer.setData('text', block.innerHTML);
-            e.dataTransfer.setData('class', block.className);
         });
     });
 
@@ -39,97 +18,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dropzone.addEventListener('drop', (e) => {
         e.preventDefault();
-        placeholder.style.display = 'none';
-
         const action = e.dataTransfer.getData('action');
-        const text = e.dataTransfer.getData('text');
-        const className = e.dataTransfer.getData('class');
+        if (placeholder) placeholder.style.display = 'none';
 
         const newBlock = document.createElement('div');
-        newBlock.className = className + ' dropped-block';
-        newBlock.innerHTML = text;
+        newBlock.className = 'draggable-block dropped-block';
+        newBlock.innerHTML = action.replace('-', ' ').toUpperCase();
         newBlock.dataset.action = action;
         
-        // Block ko delete karne ka option (right click)
-        newBlock.addEventListener('contextmenu', (ev) => {
-            ev.preventDefault();
-            newBlock.remove();
-            if (dropzone.children.length <= 1) placeholder.style.display = 'block';
-        });
-
         dropzone.appendChild(newBlock);
-        logConsole(`Added: ${action}`);
+        logConsole(`Added to sequence: ${action}`);
     });
 
-    // --- Execution Logic ---
+    // Run Logic
     runBtn.addEventListener('click', () => {
-        if (!modeToggle.checked) {
-            // Block Mode Execution
-            const droppedBlocks = dropzone.querySelectorAll('.dropped-block');
-            if (droppedBlocks.length === 0) {
-                logConsole("No blocks to run!");
-                return;
-            }
-            logConsole("Running blocks...");
-            executeSequence(Array.from(droppedBlocks).map(b => b.dataset.action));
-        } else {
-            // Text Mode (Simple Simulation)
-            logConsole("Text mode execution coming soon!");
+        const droppedBlocks = dropzone.querySelectorAll('.dropped-block');
+        if (droppedBlocks.length === 0) {
+            logConsole("Error: No blocks in dropzone!");
+            return;
         }
+        
+        droppedBlocks.forEach((block, index) => {
+            setTimeout(() => {
+                executeAction(block.dataset.action);
+            }, index * 1000); // 1 block per second
+        });
     });
 
-    function executeSequence(actions) {
-        actions.forEach((action, index) => {
-            setTimeout(() => {
-                runAction(action);
-            }, index * 800);
-        });
-    }
-
-    function runAction(action) {
-        switch (action) {
-            case 'move-right':
-                let left = parseInt(actor.style.left || 50);
-                actor.style.left = (left + 10) + "%";
-                break;
-            case 'move-left':
-                let rLeft = parseInt(actor.style.left || 50);
-                actor.style.left = (rLeft - 10) + "%";
-                break;
-            case 'jump':
-                actor.style.transform = "translateY(-50px)";
-                setTimeout(() => actor.style.transform = "translateY(0)", 300);
-                break;
-            case 'spin':
-                actor.style.transition = "transform 0.5s";
-                actor.style.transform = "rotate(360deg)";
-                setTimeout(() => actor.style.transform = "rotate(0deg)", 500);
-                break;
-            case 'color-blue':
-                actor.style.background = "#3b82f6";
-                actor.style.borderRadius = "10px";
-                break;
-            case 'color-yellow':
-                actor.style.background = "#facc15";
-                actor.style.borderRadius = "10px";
-                break;
-            case 'color-green':
-                actor.style.background = "#10b981";
-                actor.style.borderRadius = "10px";
-                break;
+    function executeAction(action) {
+        logConsole(`Executing: ${action}`);
+        actor.className = 'actor'; // Reset classes
+        
+        if (action === 'move-right') {
+            let currentLeft = parseInt(window.getComputedStyle(actor).left);
+            actor.style.left = (currentLeft + 50) + "px";
+        } else if (action === 'move-left') {
+            let currentLeft = parseInt(window.getComputedStyle(actor).left);
+            actor.style.left = (currentLeft - 50) + "px";
+        } else if (action === 'jump') {
+            actor.classList.add('jump-anim');
+        } else if (action === 'spin') {
+            actor.classList.add('spin-anim');
+        } else if (action.startsWith('color')) {
+            actor.style.backgroundColor = action.split('-')[1];
+            actor.style.borderRadius = "50%";
         }
-        logConsole(`Executed: ${action}`);
     }
 
     function logConsole(msg) {
-        consoleOutput.innerHTML += `<div>> ${msg}</div>`;
-        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        if (consoleOutput) {
+            consoleOutput.innerHTML += `<div>> ${msg}</div>`;
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
     }
 
-    clearBtn.addEventListener('click', () => {
+    clearBtn.onclick = () => {
         dropzone.querySelectorAll('.dropped-block').forEach(b => b.remove());
-        placeholder.style.display = 'block';
-        actor.style = ""; // Reset actor
-        consoleOutput.innerHTML = "System Ready...";
-    });
+        if (placeholder) placeholder.style.display = 'block';
+        actor.style.left = "50%";
+        actor.style.backgroundColor = "transparent";
+        logConsole("Cleared!");
+    };
 });

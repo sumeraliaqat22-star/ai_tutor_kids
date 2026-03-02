@@ -184,3 +184,52 @@ h1, h2, h3 { font-family: 'Fredoka', sans-serif; }
     margin-bottom: 4px;
     border-bottom: 1px solid #1e293b;
 }
+/* Rocket Animations */
+.jump-anim {
+    animation: rocketJump 0.5s ease;
+}
+
+@keyframes rocketJump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-100px); }
+}
+
+.spin-anim {
+    animation: rocketSpin 1s linear;
+}
+
+@keyframes rocketSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.dropped-block {
+    margin: 5px 0;
+    width: 100%;
+    cursor: default;
+}
+/* Rocket Movement Animations */
+.jump-anim {
+    animation: rocketJump 0.5s ease-in-out;
+}
+
+@keyframes rocketJump {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-100px); }
+}
+
+.spin-anim {
+    animation: rocketSpin 0.8s linear;
+}
+
+@keyframes rocketSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.dropped-block {
+    margin: 5px 0 !important;
+    width: 90% !important;
+    background-color: #f0fdf4 !important;
+    border: 2px solid #22c55e !important;
+}
